@@ -3,6 +3,7 @@ package com.campusdual.classroom;
 import com.campusdual.util.Utils;
 
 import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -13,6 +14,14 @@ public class Exercise32 {
     }
 
     public static String generateStringToSave(String string) {
+
+        if (string != null){
+
+        } else {
+            generateUserInputToSave();
+        }
+
+        return string;
 
     }
 
@@ -27,6 +36,15 @@ public class Exercise32 {
     }
 
     public static void printToFile(String string) {
+
+        String ruta = "src/main/resources/data.txt";
+
+        try (FileWriter writer = new FileWriter(ruta)) {
+            writer.write(string);
+            System.out.println("El fichero se ha escrito correctamente.");
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el fichero: " + e.getMessage());
+        }
 
     }
 
